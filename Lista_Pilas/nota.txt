@@ -1,0 +1,22 @@
+  @obteniendo archivo ejecutable .jar
+   1) Crear un archivo manifest.txt en el directorio javatest 
+     e incluir el texto:
+
+      Main-Class: nombreDeLaClasePrincipal (que contiene el main)
+
+      ¡¡¡IMPORTANTE!!!: agregar un retorno o enter después de nombreDeLaClasePrincipal, sino no funciona.
+   
+
+   2) Una vez que tenemos el manifiest.txt, podemos ejecutar la herramienta jar.exe.
+      El modificador “cvfm” en la llamada a jar.exe significa: "c” crear un  jar;
+      “v” mostrar la salida detallada; “f” especificar el nombre del archivo jar;
+      “m” especificar el nombre del archivo manifest.  
+
+
+      jar cvfm nombreDeLaClasePrincipal.jar manifest.txt *.class
+
+    3) para ejecutarlo:
+     
+       java -jar nombreDeLaClasePrincipal.jar
+
+       o busco el archivo en la carpeta de mi proyecto doble click y listo   

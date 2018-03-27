@@ -41,6 +41,29 @@ class Lista{
 		return contador;
 	}
 
+
+	public int eliminarDelInicio(){
+		int dato = inicio.dato;
+		if( inicio == fin ) inicio = fin = null;
+		else inicio = inicio.siguiente;
+		return dato;
+	}
+
+	public int eliminarDelFinal(){
+		int dato = fin.dato;
+		if( inicio == fin ) inicio = fin = null;
+		else{
+			Nodo temporal = inicio;
+			while( temporal.siguiente != fin ){
+				temporal = temporal.siguiente;
+			}
+			fin = temporal;
+			fin.siguiente = null;
+		}
+		
+		return dato;
+	}
+
 	public boolean estaVacia(){
 		return inicio == null;
 	}

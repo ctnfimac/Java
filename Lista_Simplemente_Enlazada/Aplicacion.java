@@ -11,7 +11,9 @@ class Aplicacion{
    public final static int AGREGAR_INICIO = 1;
    public final static int AGREGAR_FIN = 2;
    public final static int MOSTRAR = 3;
-	public final static int CANTIDAD_DE_ELEMENTOS = 4;
+   public final static int CANTIDAD_DE_ELEMENTOS = 4;
+   public final static int ELIMINAR_DEL_INICIO = 5;
+	public final static int ELIMINAR_DEL_FINAL = 6;
 	public static Lista lista;
 	public static int elemento;
 
@@ -26,7 +28,7 @@ class Aplicacion{
 			}catch(Exception e){
 				System.out.println("Mensaje de error: "+e.getMessage());
 			}
-		}while( opcion != 5 );
+		}while( opcion != 7 );
 	}
 
 	
@@ -45,6 +47,20 @@ class Aplicacion{
    	 	case MOSTRAR:
    	 		lista.imprimirLista();
    	 		break;
+         case ELIMINAR_DEL_INICIO:
+            if(!lista.estaVacia()){
+               valor = lista.eliminarDelInicio();
+               mensajeInfo("elemento eliminado :" + valor);
+            }else mensajeInfo("La lista esta vacia");
+            
+            break;  
+         case ELIMINAR_DEL_FINAL:
+            if(!lista.estaVacia()){
+               valor = lista.eliminarDelFinal();
+               mensajeInfo("elemento eliminado :" + valor);
+            }else mensajeInfo("La lista esta vacia");
+            
+            break;
           case CANTIDAD_DE_ELEMENTOS:
             valor = lista.cantidadDeElementos();
             mensajeInfo("La cantidad de elementos es de "+valor+" nodos");
@@ -73,8 +89,10 @@ class Aplicacion{
              "1. Agregar Elemento al inicio de la lista\n"
             +"2. Agregar Elemento al final de la lista\n"
             +"3. Mostrar Lista\n"
-   			+"4. Mostrar cantidad de Elementos\n"
-			   +"5. Salir",
+            +"4. Mostrar cantidad de Elementos\n"
+            +"5. Eliminar un elemento del inicio de la lista\n"
+   			+"6. Eliminar un elemento del final de la lista\n"
+			   +"7. Salir",
    				"Menu de opciones",
    				JOptionPane.INFORMATION_MESSAGE));
    		return opcion;	
@@ -82,14 +100,8 @@ class Aplicacion{
 }
 
 /*
- "1. Agregar un Elemento al Inicio de la Lista\n"
-  +"2. Agregar un Elemento al final de la lista\n"
-  +"3. Mostrar los datos de la lista\n"
-  +"4. Eliminar un elemento del inicio de la lista\n"
-  +"5. Eliminar un elemento del final de la lista\n"
   +"6. Eliminar un elemento en específico\n"
   +"7. Buscar un elemento en la lista\n"
   +"8. Ordenar la lista\n"
-  +"9. Cantidad de elementos\n"
   +"10. Salir", "Menú de Opciones",3));
 */

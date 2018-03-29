@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Lista{
 	private Nodo inicio;
 	private Nodo fin;
@@ -98,6 +100,43 @@ class Lista{
 			}
 		}
 		return elementoEliminado;
+	}
+
+	public void ordenarDeMayorAmenor(){
+		if(!this.estaVacia() && this.cantidadDeElementos() >= 2){
+			Integer[] vector = new Integer[this.cantidadDeElementos()];
+			int i = 0 ;
+			Nodo temporal = inicio;
+			while(temporal != null){
+				vector[i] = temporal.dato;
+				temporal = temporal.siguiente;
+				i++;
+			}
+			Arrays.sort(vector);
+			inicio = fin = null;
+			for( i = 0 ; i < vector.length; i++){
+				this.agregarAlInicio(vector[i]);
+			}
+		}
+	}
+
+
+	public void ordenarDeMenorAmenor(){
+		if(!this.estaVacia() && this.cantidadDeElementos() >= 2){
+			Integer[] vector = new Integer[this.cantidadDeElementos()];
+			int i = 0 ;
+			Nodo temporal = inicio;
+			while(temporal != null){
+				vector[i] = temporal.dato;
+				temporal = temporal.siguiente;
+				i++;
+			}
+			Arrays.sort(vector);
+			inicio = fin = null;
+			for( i = 0 ; i < vector.length; i++){
+				this.agregarAlFinal(vector[i]);
+			}
+		}
 	}
 
 	public boolean estaVacia(){

@@ -16,6 +16,8 @@ class Aplicacion{
 	public final static int ELIMINAR_DEL_FINAL = 6;
 	public final static int BUSCAR_ELEMENTO = 7;
 	public final static int ELIMINAR_ELEMENTO = 8;
+	public final static int ORDERNAR_MAYOR_A_MENOR = 9;
+	public final static int ORDERNAR_MENOR_A_MAYOR = 10;
     public static Lista lista;
 	public static int elemento;
 
@@ -30,7 +32,7 @@ class Aplicacion{
 			}catch(Exception e){
 				System.out.println("\nMensaje de error: "+e.getMessage());
 			}
-		}while( opcion != 9 );
+		}while( opcion != 11 );
 	}
 
 	
@@ -81,6 +83,15 @@ class Aplicacion{
 				mensajeInfo("El elemento " + valor + " fue eliminado de la lista");
 			}else mensajeInfo("El elemento " + valor + " no esta en la lista");
 			break;
+		case ORDERNAR_MAYOR_A_MENOR:
+			lista.ordenarDeMayorAmenor();
+			mensajeInfo("lista Ordenada de mayor a menor");
+			break;
+		
+		case ORDERNAR_MENOR_A_MAYOR:
+			lista.ordenarDeMenorAmenor();
+			mensajeInfo("lista Ordenada de menor a mayor");
+			break;
    	 	default:
    	 		break;
    	 }
@@ -109,17 +120,12 @@ class Aplicacion{
             +"5. Eliminar un elemento del inicio de la lista\n"
 			+"6. Eliminar un elemento del final de la lista\n"
 			+"7. Buscar un elemento en la lista\n" 
-			+"8. Eliminar elemento especifico(el primero que encuentre)\n"    
-		    +"9. Salir",
+			+"8. Eliminar elemento especifico(el primero que encuentre)\n"
+			+"9. Ordenar la lista de mayor a menor\n" 
+			+"10. Ordenar la lista de menor a mayor\n"    
+		    +"11. Salir",
    				"Menu de opciones",
    				JOptionPane.INFORMATION_MESSAGE));
    		return opcion;	
    }
 }
-
-/*
-  +"6. Eliminar un elemento en específico\n"
-  +"7. Buscar un elemento en la lista\n"
-  +"8. Ordenar la lista\n"
-  +"10. Salir", "Menú de Opciones",3));
-*/

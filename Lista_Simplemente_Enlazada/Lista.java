@@ -60,8 +60,44 @@ class Lista{
 			fin = temporal;
 			fin.siguiente = null;
 		}
-		
 		return dato;
+	}
+
+	public boolean buscarElemento(int datoAbuscar){
+		boolean elementoEncontrado = false;
+		if(!this.estaVacia()){
+			Nodo temporal = inicio;
+			while(temporal != null){
+				if(temporal.dato == datoAbuscar) elementoEncontrado = true;
+				temporal = temporal.siguiente;
+			}
+		}
+		return elementoEncontrado;
+	}
+
+	public boolean eliminarElemento(int datoAeliminar){
+		boolean elementoEliminado = false;
+		if(!this.estaVacia()){
+			if( inicio == fin && inicio.dato == datoAeliminar){ // si hay un solo nodo y su dato es igual al dato a eliminar
+				inicio = fin = null;
+				elementoEliminado = true;
+			}else if( inicio.dato == datoAeliminar){ // si el dato del primer nodo es igual al dato a eliminar
+				inicio = inicio.siguiente;
+				elementoEliminado = true;
+			}else{
+				Nodo temporal = inicio.siguiente;
+				Nodo anterior = inicio;
+				while( temporal != null && elementoEliminado == false){
+					if(temporal.dato == datoAeliminar){
+						anterior.siguiente = temporal.siguiente;
+						elementoEliminado = true;
+					}
+					anterior = temporal;
+					temporal = temporal.siguiente;
+				}
+			}
+		}
+		return elementoEliminado;
 	}
 
 	public boolean estaVacia(){

@@ -18,6 +18,8 @@ class Aplicacion{
 	public final static int ELIMINAR_ELEMENTO = 8;
 	public final static int ORDERNAR_MAYOR_A_MENOR = 9;
 	public final static int ORDERNAR_MENOR_A_MAYOR = 10;
+	public final static int ELIMINAR_TODOS = 11;
+	public final static int VACIAR_LISTA = 12;
     public static Lista lista;
 	public static int elemento;
 
@@ -32,7 +34,7 @@ class Aplicacion{
 			}catch(Exception e){
 				System.out.println("\nMensaje de error: "+e.getMessage());
 			}
-		}while( opcion != 11 );
+		}while( opcion != 13 );
 	}
 
 	
@@ -92,6 +94,19 @@ class Aplicacion{
 			lista.ordenarDeMenorAmenor();
 			mensajeInfo("lista Ordenada de menor a mayor");
 			break;
+
+		case ELIMINAR_TODOS:
+			valor = mensaje("Ingrese que dato quiere eliminar completamente de la lista");
+			if(lista.eliminarTodosDeLaLista(valor)){
+				mensajeInfo("El elemento " + valor + " fue eliminado de toda la lista");
+			}else 
+				mensajeInfo("El elemento " + valor + " no esta en la lista");
+			break;
+		
+		case VACIAR_LISTA:
+			lista.vaciarLista();
+			mensajeInfo("Lista vaciada");
+			break;
    	 	default:
    	 		break;
    	 }
@@ -122,8 +137,10 @@ class Aplicacion{
 			+"7. Buscar un elemento en la lista\n" 
 			+"8. Eliminar elemento especifico(el primero que encuentre)\n"
 			+"9. Ordenar la lista de mayor a menor\n" 
-			+"10. Ordenar la lista de menor a mayor\n"    
-		    +"11. Salir",
+			+"10. Ordenar la lista de menor a mayor\n"
+			+"11. Eliminar elemento completamente de la lista\n" 
+			+"12. Vaciar lista\n"    
+		    +"13. Salir",
    				"Menu de opciones",
    				JOptionPane.INFORMATION_MESSAGE));
    		return opcion;	

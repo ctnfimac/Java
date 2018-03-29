@@ -139,6 +139,41 @@ class Lista{
 		}
 	}
 
+	public boolean eliminarTodosDeLaLista(int datoAeliminar){
+		boolean elementosEliminados = false;
+		if(!this.estaVacia()){
+			if( inicio == fin && inicio.dato == datoAeliminar){ // si hay un solo nodo y su dato es igual al dato a eliminar
+				inicio = fin = null;
+				elementosEliminados = true;
+			}else{
+				Nodo temporal = inicio.siguiente;
+				Nodo anterior = inicio;
+				while( temporal != null ){
+					if( inicio.dato == datoAeliminar){ // si el dato del primer nodo es igual al dato a eliminar
+						inicio = inicio.siguiente;
+						anterior = inicio;
+						temporal = temporal.siguiente;
+						elementosEliminados = true;
+					}else if(temporal.dato == datoAeliminar){
+						anterior.siguiente = temporal.siguiente;
+						temporal = temporal.siguiente;
+						elementosEliminados = true;
+						if(anterior.siguiente == null) fin = anterior;// apunto fin a anterior sino fin queda apuntando a un nodo eliminado
+					}else{
+						anterior = temporal;
+						temporal = temporal.siguiente;
+					}
+				}
+			}
+		}
+		return elementosEliminados;
+	}
+
+	public void vaciarLista(){
+		inicio = null;
+		fin = null;
+	}
+
 	public boolean estaVacia(){
 		return inicio == null;
 	}

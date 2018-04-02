@@ -30,7 +30,7 @@ class Lista{
 		}
 	}
 
-	public void mostrarLista(){
+	public void mostrarListaDeInicioAfin(){
 		if(!this.estaVacia()){
 			Nodo temporal = inicio;
 			System.out.println("");
@@ -42,6 +42,43 @@ class Lista{
 			}
 			JOptionPane.showMessageDialog(null,msj);
 		}
+	}
+
+	public void mostrarListaDeFinAinicio(){
+		if(!this.estaVacia()){
+			Nodo temporal = fin;
+			System.out.println("");
+			String msj = "";
+			while(temporal != null){
+				System.out.print("["+temporal.dato+"]<==>");
+				msj += "["+temporal.dato+"]<==>";
+				temporal = temporal.siguiente;
+			}
+			JOptionPane.showMessageDialog(null,msj);
+		}
+	}
+
+
+	public int eliminarDelInicio(){
+		int resultado = inicio.dato;
+			if( inicio == fin ){
+				inicio = fin = null;
+			}else{
+				inicio.anterior.siguiente = null;
+				inicio = inicio.anterior;
+			}
+		return resultado;
+	}
+
+	public int eliminarDelFinal(){
+		int resultado = fin.dato;
+		if( inicio == fin ){
+			inicio = fin = null;
+		}else{
+			fin.siguiente.anterior = null;
+			fin = fin.siguiente;
+		}
+	return resultado;
 	}
 
 	public boolean estaVacia(){

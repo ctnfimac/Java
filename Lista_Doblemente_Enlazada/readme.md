@@ -21,6 +21,7 @@ en los métodos agregarAlInicio(int dato) y agregarAlFinal(int dato) tienen el s
 inicio = fin = new Nodo(dato);
 ~~~
 ![primernodo](https://user-images.githubusercontent.com/24881247/38172344-0e800634-3581-11e8-973c-ee8c975b4596.png)
+
 en este caso el primer dato ingresado es el 9. Tanto el siguiente como anterior del nodo creado apuntan a null, y los nodos inicio y fin de la lista apuntan al nodo creado.
 
 ### Ingresando un dato al principio

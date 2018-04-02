@@ -4,7 +4,10 @@ public class Main{
 	static final int SALIR = 0;
 	static final int AGREGAR_AL_INICIO = 1;
 	static final int AGREGAR_AL_FINAL  = 2;
-	static final int MOSTRAR_LISTA  = 3;
+	static final int MOSTRAR_LISTA_INICIO_A_FIN  = 3;
+	static final int MOSTRAR_LISTA_FIN_A_INICIO = 4;
+	static final int ELIMINAR_DEl_INCICIO = 5;
+	static final int ELIMINAR_DEl_FINAL = 6;
 
 	private static Lista lista;
 
@@ -32,7 +35,10 @@ public class Main{
 			null,
 			"1. Agregar valor al inicio de la lista\n"
 		   +"2. Agregar valor al final de la lista\n"
-		   +"3. Mostrar Lista\n"
+		   +"3. Mostrar la Lista de inicio a fin\n"
+		   +"4. Mostrar la Lista de fin a inicio\n"
+		   +"5. Eliminar Nodo del inicio de la lista\n"
+		   +"6. Eliminar Nodo del final de la lista\n"
 		   +"0. Salir",
 		   "Menu de opciones",
 		   JOptionPane.PLAIN_MESSAGE));
@@ -47,8 +53,25 @@ public class Main{
 			case AGREGAR_AL_FINAL:
 				lista.agregarAlFinal(mensajeDeEntrada("Ingrese el valor", "Ingresando valor al inicio de la lista"));
 				break;
-			case MOSTRAR_LISTA:
-				lista.mostrarLista();
+			case MOSTRAR_LISTA_INICIO_A_FIN:
+				lista.mostrarListaDeInicioAfin();
+				break;
+			case MOSTRAR_LISTA_FIN_A_INICIO:
+				lista.mostrarListaDeFinAinicio();
+				break;
+			case ELIMINAR_DEl_INCICIO:
+				if(!lista.estaVacia()){
+					mensajeDeInformacion("Elemento eliminado :" + lista.eliminarDelInicio());
+				}else{
+					mensajeDeInformacion("La lista esta vacia");
+				}
+				break; 
+			case ELIMINAR_DEl_FINAL:
+				if(!lista.estaVacia()){
+					mensajeDeInformacion("Elemento eliminado :" + lista.eliminarDelFinal());
+				}else{
+					mensajeDeInformacion("La lista esta vacia");
+				}
 				break;
 			default:
 				break;
@@ -56,15 +79,3 @@ public class Main{
 	}
 
 }
-
-
-/*
-"1. Agregar un Nodo al Inicio\n"
-+"2. Agregar in Nodo al Final\n"
-+"3. Mostrar la lista de inicio a fin\n"
-+"4. Mostrar la lista de fin a inicio\n"
-+"5. Eliminar un nodo del inicio\n"
-+"6. Eliminar un nodo del final\n"
-+"7. salir\n"
-
-*/

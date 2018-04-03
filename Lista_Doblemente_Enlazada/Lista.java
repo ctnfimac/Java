@@ -81,6 +81,18 @@ class Lista{
 	return resultado;
 	}
 
+	public int cantidadDeElementos(){
+		int cantidad = 0;
+		if(!this.estaVacia()){
+			Nodo temporal = inicio;
+			while(temporal != null){
+				cantidad++;
+				temporal = temporal.anterior;
+			}
+		}
+		return cantidad;
+	}
+
 	public boolean estaVacia(){
 		return inicio == null;
 	}

@@ -8,6 +8,7 @@ public class Main{
 	static final int MOSTRAR_LISTA_FIN_A_INICIO = 4;
 	static final int ELIMINAR_DEl_INCICIO = 5;
 	static final int ELIMINAR_DEl_FINAL = 6;
+	static final int CANTIDAD_DE_ELEMENTOS = 7;
 
 	private static Lista lista;
 
@@ -39,6 +40,7 @@ public class Main{
 		   +"4. Mostrar la Lista de fin a inicio\n"
 		   +"5. Eliminar Nodo del inicio de la lista\n"
 		   +"6. Eliminar Nodo del final de la lista\n"
+		   +"7. Ver cantidad de Elementos en la lista\n"
 		   +"0. Salir",
 		   "Menu de opciones",
 		   JOptionPane.PLAIN_MESSAGE));
@@ -72,6 +74,9 @@ public class Main{
 				}else{
 					mensajeDeInformacion("La lista esta vacia");
 				}
+				break;
+			case CANTIDAD_DE_ELEMENTOS:
+				mensajeDeInformacion("La cantidad de elementos en la lista es de "+ lista.cantidadDeElementos()+" elementos.");
 				break;
 			default:
 				break;

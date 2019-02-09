@@ -1,2 +1,2 @@
 ## Prácticas con Java
-![java](https://user-images.githubusercontent.com/24881247/36348396-84dcde38-144d-11e8-8a12-fa01d00de1ae.png)
+![java](https://user-images.githubusercontent.com/24881247/52526463-be8b6100-2c97-11e9-9e27-a86bed5027fd.png)

@@ -1,4 +1,8 @@
-
+/**
+  @description: Programar un algoritmo recursivo que permita sumar los elementos de un vector.
+  @author: Christian Peralta
+  @fecha: 21-02-2019
+ */
 import java.util.*;
 
 public class SumarNumeroDeArray {

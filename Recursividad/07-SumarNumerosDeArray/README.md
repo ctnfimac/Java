@@ -1,5 +1,3 @@
-## Lógica 
-
 #### Primer método 
 
 ```java
